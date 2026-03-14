@@ -170,3 +170,7 @@ Identifies top and bottom performers:
 - **Data Format:** CSV (for bulk loading)
 - **Architecture:** Medallion (Bronze / Silver / Gold)
 - **Modeling:** Star Schema (Fact + Dimensions)
+
+## 🤝 Connect
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdelrhman-yassein/)
