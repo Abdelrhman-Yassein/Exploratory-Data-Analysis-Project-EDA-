@@ -31,7 +31,14 @@ A structured SQL-based Exploratory Data Analysis project built on top of a **Dat
 │   ├── dimensions_exploration.sql           # Dimension analysis (customers, products)
 │   ├── measures_exploration.sql             # Key business metrics
 │   ├── Magnitude_analysis.sql               # Aggregated counts & revenue by segments
-│   └── ranking_analysis.sql                 # Top/bottom performers (products & customers)
+│   ├── ranking_analysis.sql                 # Top/bottom performers (products & customers)
+│   ├── change_over_time.sql                 # Sales trends by year and month
+│   ├── cumulative_analysis.sql              # Running totals & moving averages
+│   ├── performancr_analysis.sql             # Year-over-year product performance
+│   ├── data_segmentation.sql                # Product cost ranges & customer segments
+│   ├── part_to_whol.sql                     # Category contribution to overall sales
+│   ├── customer_report.sql                  # Customer metrics view (gold.report_customers)
+│   └── product_report.sql                   # Product metrics view (gold.report_products)
 │
 └── docs/
     ├── Project Roadmap.pdf                  # Project planning document
@@ -114,6 +121,48 @@ Identifies top and bottom performers:
 - Top 10 highest-value customers
 - Bottom 3 customers by number of orders placed
 
+### `change_over_time.sql`
+Tracks sales trends across time dimensions:
+- Yearly revenue, unique customer count, and total quantity sold
+- Monthly aggregations across all years
+- Combined year + month breakdown for granular trend analysis
+
+### `cumulative_analysis.sql`
+Computes progressive metrics using window functions:
+- Monthly sales totals
+- Running total of sales over time
+- Moving average of product price month-over-month
+
+### `performancr_analysis.sql`
+Year-over-year product performance comparison using window functions:
+- Current year sales vs. product's historical average
+- Deviation from average (Above Avg / Below Avg / Avg)
+- Prior year sales (via `LAG`) and year-over-year change
+
+### `data_segmentation.sql`
+Groups data into meaningful buckets for distribution analysis:
+- Products segmented into cost ranges: Below 100, 100–500, 500–1000, Above 1000
+- Customers classified into VIP, Regular, and New segments based on lifespan and total spending
+
+### `part_to_whol.sql`
+Analyzes each category's share of total revenue:
+- Total sales per product category
+- Overall sales (window function)
+- Percentage contribution of each category to overall revenue
+
+### `customer_report.sql`
+Creates the `gold.report_customers` view — a consolidated customer analytics layer:
+- Core fields: name, age, transaction details
+- Age group segmentation (Under 20, 20–29, 30–39, 40–49, 50+)
+- Customer segments: VIP, Regular, New
+- KPIs: recency, average order value, average monthly spend
+
+### `product_report.sql`
+Creates the `gold.report_products` view — a consolidated product analytics layer:
+- Core fields: name, category, subcategory, cost
+- Product segments: High-Performer, Mid-Range, Low-Performer
+- KPIs: recency in months, average order revenue, average monthly revenue
+
 ---
 
 ## 🚀 Getting Started
@@ -160,6 +209,13 @@ Identifies top and bottom performers:
 | **Measures / KPIs** | What are total sales, orders, and average price? |
 | **Magnitude Analysis** | Which categories and countries drive the most volume and revenue? |
 | **Ranking Analysis** | Which products and customers are top/bottom performers? |
+| **Change Over Time** | How do sales, customers, and quantity trend by year and month? |
+| **Cumulative Analysis** | What is the running total of sales and the moving average price over time? |
+| **Performance Analysis** | How does each product perform vs. its historical average and the prior year? |
+| **Data Segmentation** | How are products distributed by cost? How are customers split across VIP/Regular/New? |
+| **Part-to-Whole** | Which product categories contribute the most to overall revenue? |
+| **Customer Report** | What are each customer's lifetime value, recency, and spending behavior? |
+| **Product Report** | What are each product's revenue performance, recency, and monthly trends? |
 
 ---
 
